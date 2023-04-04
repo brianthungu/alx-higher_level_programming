@@ -1,32 +1,24 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-"""
-Created on Thu May 21 17:43:34 2020
-
-@author: Robinson Montes
-"""
-
 
 def add_integer(a, b=98):
-    """
-    adds two integers
+    """Adds two integers
 
     Args:
-        a (int): First integer to add
-        b (int): Second integer to add
+        a (int/float): The first number to be added
+        b (int/float): The second number to be added (default is 98)
+
+    Returns:
+        int: The sum of a and b
 
     Raises:
-        TypeError: Exception if size is not an integer
-
+        TypeError: If either a or b is not an int or a float
     """
-    if type(a) is not int:
-        if type(a) is float and a == a and abs(a) <= 1.7976931348623158e+308:
-            a = int(a)
-        else:
-            raise TypeError("a must be an integer")
-        if type(b) is not int:
-            if type(b) is float and b == b and abs(b) <= 1.7976931348623158e+308:
-                b = int(b)
-            else:
-                raise TypeError("b must be an integer")
-            return a + b
+
+    if not isinstance(a, (int, float)):
+        raise TypeError("a must be an integer")
+
+    if not isinstance(b, (int, float)):
+        raise TypeError("b must be an integer")
+
+    return int(a) + int(b)
