@@ -1,23 +1,22 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
-def print_square(size):
+def text_indentation(text):
     """
-    Prints a square with the character #.
+    prints a string with 2 new lines after '.', '?', and ':'
 
     Args:
-        size (int): the size length of the square
+        text (int): text to print
 
     Raises:
-        TypeError: if size is not an integer
-        ValueError: if size is less than 0
-
-    Returns:
-        None
+        TypeError: "text must be a string"
     """
-    if not isinstance(size, int):
-        raise TypeError("size must be an integer")
-    elif size < 0:
-        raise ValueError("size must be >= 0")
+    if type(text) is not str:
+        raise TypeError("text must be a string")
 
-    for i in range(size):
-        print("#" * size)
+    string = text.replace('.', '.\n\n').replace(':', ':\n\n')\
+            .replace('?', '?\n\n')
+            for i in range(len(text)):
+                string = string.replace('\n ', '\n')
+
+    print(string, end='')
